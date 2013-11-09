@@ -1,0 +1,66 @@
+<% layout('../boilerplate') -%>
+
+
+<div class="container" ng-controller = "calendarCtrl">
+	<div class="row">
+		<div class="column">
+		<form>
+		<table border="0">
+			<tr>
+				<td>
+					<h1> Calender </h1>
+				</td>
+			</tr>
+		<tr>
+			<td><h4> Date & Time<h4/></td>
+		</tr>
+		<tr>
+			<td>
+				<input type="datetime-local" ng-model='date'/>
+			</td>
+			<td>
+				<input class="btn btn-primary" id="btn" value="Submit" type="button" ng-click="update()"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h4> Where ?<h4/></br>
+			<input type="textarea" rows="1" cols="20"  ng-model='where'/>
+			</td>	
+		</tr>
+		<tr>
+			<td><h4> What ?<h4/></br>
+				<textarea rows="3" cols="20" ng-model='what'>
+				</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td><h4> How Long ?<h4/></br>
+				<input type="time" ng-model="time">
+			</td>
+		</tr>
+		</form>
+		</div>
+
+	</div>
+</div>
+</br>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <tbody>
+            	<tr>
+            		<td><h4>Date</h4></td>
+            		<td><h4>Where</h4></td>
+            		<td><h4>Description</h4></td>
+            		<td><h4>Duration</h4></td>
+            	</tr>
+                <tr ng-repeat="message in messages">
+                    <td>{{message.text}}</td> <td>{{message.what}}</td> <td>{{message.where}}</td><td>{{message.time}}</td>
+                    <td><a ng-click="edit($index)"><i class="icon-edit"></i></a></td>
+                    <td><a ng-click="remove($index)"><i class="icon-remove"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
